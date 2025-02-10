@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ninja Tycoon Script - Vortex Scripts</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <style>
+    /* Override the default banner label for this page */
+    .ninja-banner::after {
+      content: "Ninja Tycoon Script";
+    }
+  </style>
+</head>
+<body>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <header class="fade-in">
+    <h1>Ninja Tycoon Script</h1>
+  </header>
+  
+  <nav class="fade-in">
+    <a href="index.html">← Back to Home</a>
+  </nav>
+  
+  <main class="fade-in">
+    <div class="script-banner ninja-banner">
+      <img src="images - 2025-02-10T132957.031.jpeg" alt="Ninja Tycoon Script" class="script-image" />
+    </div>
+    <section class="script-content">
+      <pre id="scriptCode">
+Coming Soon! Currently a placeholder.
+      </pre>
+      <button id="copyBtn" class="copy-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M10 1H2a1 1 0 0 0-1 1v10h1V2h8V1z"/>
+          <path d="M13 4H6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm-1 10H7V6h5v8z"/>
+        </svg>
+        Copy Code
+      </button>
+      <div id="copyMessage" class="copy-message">Copied!</div>
+    </section>
+  </main>
+  
+  <script>
+    const copyBtn = document.getElementById('copyBtn');
+    const scriptCode = document.getElementById('scriptCode');
+    const copyMessage = document.getElementById('copyMessage');
+    
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(scriptCode.innerText)
+        .then(() => {
+          copyBtn.classList.add('active');
+          setTimeout(() => {
+            copyBtn.classList.remove('active');
+          }, 150);
+          copyMessage.style.opacity = '1';
+          copyMessage.style.transform = 'scale(1.1)';
+          setTimeout(() => {
+            copyMessage.style.opacity = '0';
+            copyMessage.style.transform = 'scale(1)';
+          }, 1500);
+        })
+        .catch(err => {
+          console.error('Failed to copy the code:', err);
+        });
+    });
+  </script>
+  <footer>
+    <div class="contact-section">
+      <span>Contact me on:</span>
+      <a href="https://discord.gg/YyMWCUUnZC" target="_blank">
+        <img src="vecteezy_discord-logo-png-discord-icon-transparent-png_18930500.png" alt="Discord Logo" class="discord-logo">
+      </a>
+      <span class="discord-username">@vort.5</span>
+    </div>
+    <div class="discord-invite">
+      Join the discord server <a href="https://discord.gg/YyMWCUUnZC" target="_blank">here</a> for announcements and more!
+    </div>
+  </footer>
+</body>
+</html>

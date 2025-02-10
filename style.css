@@ -1,0 +1,534 @@
+/* Root variables for consistent theming */
+:root {
+  --primary: #ad62d1;
+  --secondary: #8a42b0;
+  --background-dark: #0a0014;
+  --background-purple: #2e004f;
+  --text: #ffffff;
+  --glow: 0 0 10px var(--primary),
+         0 0 20px var(--primary),
+         0 0 30px rgba(173, 98, 209, 0.3);
+}
+
+/* Import modern fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;400;600&display=swap');
+
+/* Space background animation */
+@keyframes space {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.2) rotate(180deg); }
+  100% { transform: scale(1) rotate(360deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Rajdhani', sans-serif;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(173, 98, 209, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 20% 30%, rgba(106, 57, 175, 0.3) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(173, 98, 209, 0.2) 0%, transparent 35%),
+    linear-gradient(45deg, var(--background-dark), var(--background-purple));
+  color: var(--text);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Enhanced Star field effect */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 5% 5%, white 100%, transparent),
+    radial-gradient(1px 1px at 10% 10%, white 100%, transparent),
+    radial-gradient(2px 2px at 15% 15%, white 100%, transparent),
+    radial-gradient(1px 1px at 20% 20%, white 100%, transparent),
+    radial-gradient(2px 2px at 25% 25%, white 100%, transparent),
+    radial-gradient(1px 1px at 30% 30%, white 100%, transparent),
+    radial-gradient(2px 2px at 35% 35%, white 100%, transparent),
+    radial-gradient(1px 1px at 40% 40%, white 100%, transparent),
+    radial-gradient(2px 2px at 45% 45%, white 100%, transparent),
+    radial-gradient(1px 1px at 50% 50%, white 100%, transparent),
+    radial-gradient(2px 2px at 55% 55%, white 100%, transparent),
+    radial-gradient(1px 1px at 60% 60%, white 100%, transparent),
+    radial-gradient(2px 2px at 65% 65%, white 100%, transparent),
+    radial-gradient(1px 1px at 70% 70%, white 100%, transparent),
+    radial-gradient(2px 2px at 75% 75%, white 100%, transparent),
+    radial-gradient(1px 1px at 80% 80%, white 100%, transparent),
+    radial-gradient(2px 2px at 85% 85%, white 100%, transparent),
+    radial-gradient(1px 1px at 90% 90%, white 100%, transparent),
+    radial-gradient(2px 2px at 95% 95%, white 100%, transparent);
+  background-size: 200% 200%;
+  opacity: 0.25;
+  animation: space 80s linear infinite;
+  pointer-events: none;
+}
+
+/* Nebula effect */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 30% 40%, rgba(173, 98, 209, 0.2), transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(106, 57, 175, 0.2), transparent 30%);
+  filter: blur(30px);
+  opacity: 0.5;
+  animation: twinkle 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+header {
+  text-align: center;
+  padding: 2.5em;
+  background: linear-gradient(180deg, 
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(46, 0, 79, 0.4) 100%);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  border-bottom: 2px solid rgba(173, 98, 209, 0.3);
+  position: relative;
+  z-index: 10;
+}
+
+header h1 {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3.5em;
+  letter-spacing: 3px;
+  background: linear-gradient(120deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: var(--glow);
+  animation: float 4s ease-in-out infinite;
+}
+
+main {
+  padding: 1em;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: -1em; /* Move content up */
+}
+
+/* Navigation styling */
+nav {
+  margin: 2.5em;
+  text-align: center;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2em;
+  padding: 0.8em 1.5em;
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  background: linear-gradient(45deg, 
+    rgba(173, 98, 209, 0.1),
+    rgba(138, 66, 176, 0.2));
+  backdrop-filter: blur(5px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(173, 98, 209, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+nav a:hover::before {
+  left: 100%;
+}
+
+nav a:hover {
+  background: rgba(173, 98, 209, 0.3);
+  box-shadow: var(--glow);
+  transform: translateX(-5px) translateY(-2px);
+}
+
+/* Script content styling */
+.script-content pre {
+  background: linear-gradient(145deg,
+    rgba(0, 0, 0, 0.9),
+    rgba(46, 0, 79, 0.8));
+  border-left: 4px solid var(--primary);
+  padding: 2em;
+  margin: 2em 0;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  font-family: 'Fira Code', monospace;
+  font-size: 1.1em;
+  line-height: 1.6;
+  position: relative;
+  overflow: hidden;
+}
+
+.script-content pre::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg,
+    transparent,
+    rgba(173, 98, 209, 0.1),
+    transparent);
+  animation: shine 3s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Copy button styling */
+.copy-btn {
+  background: linear-gradient(45deg,
+    rgba(173, 98, 209, 0.1),
+    rgba(138, 66, 176, 0.2));
+  border: 2px solid var(--primary);
+  color: var(--text);
+  padding: 1em 2em;
+  margin-top: 2em;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 1em;
+  font-size: 1.2em;
+  font-family: 'Rajdhani', sans-serif;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+
+.copy-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.copy-btn:hover svg {
+  transform: scale(1.2);
+}
+
+.copy-btn:hover {
+  background: rgba(173, 98, 209, 0.3);
+  transform: translateY(-3px);
+  box-shadow: var(--glow);
+}
+
+.copy-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+
+.copy-message {
+  color: var(--primary);
+  font-size: 1.2em;
+  text-align: center;
+  margin-top: 0.8em;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Enhanced fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Vortex SVG enhancements */
+.vortex-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.vortex-svg {
+  width: 180px;
+  height: 180px;
+  animation: rotate 15s linear infinite, pulse 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px var(--primary));
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* Modified Script Banner */
+.script-banner {
+  position: relative;
+  text-align: center;
+  margin: 3em auto;
+  padding: 1em;
+  background: linear-gradient(145deg,
+    rgba(0, 0, 0, 0.4),
+    rgba(46, 0, 79, 0.3));
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.script-banner .script-image {
+  max-width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 3px solid rgba(173, 98, 209, 0.3);
+}
+
+.script-banner .script-image:hover {
+  transform: scale(1.02) translateY(-5px);
+  box-shadow: var(--glow);
+}
+
+.script-banner::after {
+  content: "Shinobi Storm Script";
+  display: block;
+  margin-top: 1.5em;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2em;
+  background: linear-gradient(120deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: var(--glow);
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Script Card Container and Label */
+.script-card-container {
+  text-align: center;
+  margin: 2em;
+  margin-top: -1em;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.script-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2em;
+  color: var(--text);
+  margin-bottom: 1em;
+  text-shadow: 0 0 10px var(--primary),
+               0 0 20px var(--primary);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* New: Home Page Script Card */
+.script-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
+  padding: 2em;
+  margin-top: -2em;
+}
+
+.script-card {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  margin: 1em;
+  width: 300px;
+  overflow: hidden;
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.script-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px var(--primary);
+}
+
+.script-card-image {
+  width: 100%;
+  display: block;
+}
+
+.script-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.script-card:hover .script-card-overlay {
+  opacity: 1;
+}
+
+.script-card-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8em;
+  color: var(--text);
+  text-shadow: 0 0 10px var(--primary),
+               0 0 15px var(--primary);
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary); }
+  to { text-shadow: 0 0 15px var(--primary), 0 0 25px var(--primary), 0 0 35px var(--primary); }
+}
+
+/* Additional shooting star animations */
+@keyframes shootingStar {
+  0% {
+    transform: translateX(-100%) translateY(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(200%) translateY(200%);
+    opacity: 0;
+  }
+}
+
+.shooting-star {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: white;
+  pointer-events: none;
+}
+
+.shooting-star::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, white, transparent);
+  transform-origin: left;
+}
+
+.shooting-star:nth-child(1) {
+  top: 10%;
+  left: 0;
+  animation: shootingStar 4s linear infinite;
+  animation-delay: 0s;
+}
+
+.shooting-star:nth-child(2) {
+  top: 30%;
+  left: 20%;
+  animation: shootingStar 6s linear infinite;
+  animation-delay: 2s;
+}
+
+.shooting-star:nth-child(3) {
+  top: 50%;
+  left: 40%;
+  animation: shootingStar 5s linear infinite;
+  animation-delay: 4s;
+}
+
+/* Updated footer styling */
+footer {
+  text-align: center;
+  padding: 2em;
+  margin-top: 3em;
+  background: linear-gradient(180deg, 
+    rgba(46, 0, 79, 0.1) 0%,
+    rgba(0, 0, 0, 0.3) 100%);
+  backdrop-filter: blur(10px);
+  border-top: 2px solid rgba(173, 98, 209, 0.2);
+}
+
+.contact-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  font-family: 'Orbitron', sans-serif;
+  color: var(--text);
+  margin-bottom: 1em;
+}
+
+.discord-logo {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.discord-logo:hover {
+  transform: scale(1.1);
+}
+
+.discord-username {
+  font-size: 1.2em;
+  color: var(--primary);
+  text-shadow: var(--glow);
+}
+
+.discord-invite {
+  font-family: 'Rajdhani', sans-serif;
+  color: var(--text);
+  margin-top: 1em;
+  font-size: 1.1em;
+}
+
+.discord-invite a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.discord-invite a:hover {
+  text-shadow: var(--glow);
+}
